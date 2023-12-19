@@ -2,9 +2,13 @@ import { formatDate, firstDayOfYear, tomorrow } from "./utils";
 import { Context } from "./common";
 import { downloadInvocePdfs as jdDownloadInvocePdfs } from "./jd";
 
-const sid = "MXQxYTVvOC40YzZ1OWk1QDli";
-const cid = "TVhReFlUVnZPQzQwWXpaMU9XazFRRGxp";
-const uid = "tao.cui@bjyada.com";
+const sid = process.env.MAIL_263_SID || "";
+const cid = process.env.MAIL_263_CID || "";
+const uid = process.env.MAIL_263_UID || "";
+
+console.log("sid", sid);
+console.log("cid", cid);
+console.log("uid", uid);
 
 const context: Context = {
   sid,

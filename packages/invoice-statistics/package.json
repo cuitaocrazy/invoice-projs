@@ -5,6 +5,7 @@
   "scripts": {
     "build": "tsc",
     "pkg": "pkg .",
+    "start": "tsx src/main.ts",
     "clean": "rm -rf dist && rm -rf invoice-statistics-* && rm -rf statistics.csv",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

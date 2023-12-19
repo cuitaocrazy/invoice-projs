@@ -99,7 +99,7 @@ export async function downloadInvocePdfs(context: Context) {
   const zipFiles = res.filter((item) => item.invoiceId === "");
   const pdfFiles = res.filter((item) => item.invoiceId !== "");
 
-  const task = creatTask(10);
+  const task = creatTask();
 
   const dz = downloadZip(dir);
   const dp = downloadPdf(dir);

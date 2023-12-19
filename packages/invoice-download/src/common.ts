@@ -100,7 +100,7 @@ export async function getMailIds(context: Context) {
   const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
   bar.start(totalPage, 1);
 
-  const task = creatTask(10);
+  const task = creatTask();
 
   for (let i = 2; i <= totalPage; i++) {
     await task.push(() =>
@@ -181,7 +181,7 @@ export async function getInvoiceDownloadUrls<T>(
   const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
   bar.start(mailIds.length, 0);
 
-  const task = creatTask(10);
+  const task = creatTask();
   for (let id of mailIds) {
     await task.push(async () => {
       const urls = await getDownloadUrls(context, id.id).catch((e) => {
