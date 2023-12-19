@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import PDFParser, { Output } from "pdf2json";
+import cliProgress from "cli-progress";
 
 function getPath() {
   const pdfDir = process.argv[2] ? process.argv[2] : "./pdf";
@@ -141,7 +142,10 @@ async function main() {
   // const pdfFiles = [
   //   "/Users/cuitao/projects/test/pdf/pdf/jd/011002200511-68240463.pdf",
   // ];
+  const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
+  bar.start(pdfFiles.length, 0);
   for (let pdfFile of pdfFiles) {
+    bar.increment();
     const pdfData = await parsePdf(pdfFile);
 
     // console.log(JSON.stringify(pdfData, null, 2));
@@ -164,7 +168,7 @@ async function main() {
     const amount = getAmount(pdfData);
     const name = pdfFile.replace(path.join(pdfDir, "/"), "");
 
-    console.log(`${name}\t${amount}`);
+    // console.log(`${name}\t${amount}`);
 
     if (amount) {
       total += amount;
@@ -173,6 +177,8 @@ async function main() {
       console.warn(`miss ${pdfFile}`);
     }
   }
+
+  bar.stop();
 
   console.log(total.toFixed(2));
   csv.write(`total,${total.toFixed(2)}\n`);
