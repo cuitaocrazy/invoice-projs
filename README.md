@@ -24,6 +24,12 @@ cid 在 cookies 里找到, key 像:`cid_tao.cui_bjyada.com`这样的东西
 
 JD 发票下载可能会断开,默认重试 5 次, 重试间隔 0 秒,参数从`utils.ts`的`retry`函数参数修改
 
+# invoice-statistics
+
+不加参数计算路径为当前路径的`pdf`目录
+
+生成的`statistics.csv`会在当前目录
+
 演示
 
 [![asciicast](https://asciinema.org/a/Lwh9qY5VSTbIQn7DiGcaxj4rz.svg)](https://asciinema.org/a/Lwh9qY5VSTbIQn7DiGcaxj4rz)
