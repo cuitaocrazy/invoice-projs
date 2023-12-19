@@ -1,0 +1,30 @@
+{
+  "name": "invoice-statistics",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc",
+    "pkg": "pkg .",
+    "clean": "rm -rf dist && rm -rf invoice-statistics-* && rm -rf statistics.csv",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cli-progress": "^3.11.5",
+    "cli-progress": "^3.12.0",
+    "pdf2json": "^3.0.5"
+  },
+  "bin": "./dist/main.js",
+  "pkg": {
+    "assets": [],
+    "scripts": [
+      "../../node_modules/pdf2json/base/**/*.js"
+    ],
+    "targets": [
+      "node18-macos-x64",
+      "node18-win-x64",
+      "node18-linux-x64"
+    ]
+  }
+}
